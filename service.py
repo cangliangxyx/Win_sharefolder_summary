@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 import os
-from samp_stdout_insertdb import insert_db
+from samp_insert_mysql import insert_mysql
 os.environ['config_env'] = "localhost"
 app = Flask(__name__)
 db_name = os.environ.get('config_env')
@@ -15,7 +15,7 @@ def index():
 def insert_stdout():
     # 在这里编写触发的脚本逻辑
     print("开始插入")
-    insert_db('test')
+    insert_mysql('test')
     return render_template('insert_stdout.html')
 
 if __name__ == '__main__':

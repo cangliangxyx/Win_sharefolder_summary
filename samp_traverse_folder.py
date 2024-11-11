@@ -1,5 +1,6 @@
 import os
 
+#遍历目录得到文件路径
 def traverse_directory(file_folder):
     result = []
     skip_first_iteration = True

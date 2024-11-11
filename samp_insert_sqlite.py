@@ -5,14 +5,11 @@ from datetime import date
 from common.query_db import MysqlConn
 from aifc import Error
 
-def insert_db(env,file_info, table_name):
-    today = date.today()
-    date_str = today.strftime('%Y-%m-%d')
-    # table_name = 'samp_stdout'
-    columns = ['Hostname', 'ScopeName', 'ShareState', 'Name', 'Path', 'Description', 'date_time']
-    # file_info = file_dir_config(env)
-    # print(file_info)
-    # for i in traverse_directory(file_info):
+today = date.today()
+date_str = today.strftime('%Y-%m-%d')
+columns = ['Hostname', 'ScopeName', 'ShareState', 'Name', 'Path', 'Description', 'date_time']
+
+def insert_mysql(env,file_info, table_name):
     for i in file_info:
         with open(i, 'r') as csvfile:
             csvreader = csv.reader(csvfile)
