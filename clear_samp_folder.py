@@ -19,6 +19,6 @@ def clear_directories(env):
     print("clear end")
 
 
-# 使用示例，指定要清理的路径
+# 使用示例，指定要清理的路径.
 # clear_directories("test")
 
