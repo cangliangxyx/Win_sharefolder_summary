@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <script>
+    function openPopup() {
+      var newWindow = window.open("", "newWindow", "width=400,height=200");
+      newWindow.document.write("<p>正在插入请稍后</p>");
+    }
+    </script>
+</head>
+<body>
+
+<h1>{{ flask_data }}</h1>
+</body>
+<body>
+    <form action="/insert_stdout" method="post">
+        <input onclick="openPopup()" type="submit" value="开始数据插入">
+    </form>
+</body>
+
+</html>
