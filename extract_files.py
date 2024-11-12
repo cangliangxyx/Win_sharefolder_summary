@@ -2,14 +2,16 @@ import os
 import zipfile
 import py7zr
 from zip_file_info import zip_file_list, z7_file_list
+from common.config import file_dir_config
 
 def extract_7z(env):
+    file_path = file_dir_config(env)
     files_list = z7_file_list(env)
     for i in files_list:
         print(i)
-        z7_files_name = 'C:\\Win_sharefolder_summary\\'+i
+        z7_files_name = file_path+i
         print("zip_files_name = ", z7_files_name)
-        extract_to_path = 'C:\\Win_sharefolder_summary\\'
+        extract_to_path = file_path
         print("extract_to_path = ", extract_to_path)
         #建立解压目录
         os.makedirs(extract_to_path, exist_ok=True)
@@ -19,10 +21,11 @@ def extract_7z(env):
     print("######unzip end######")
 
 def extract_zip(env):
+    file_path = file_dir_config(env)
     files_list = zip_file_list(env)
     for i in files_list:
-        zip_files_name = 'C:\\Win_sharefolder_summary\\'+i
-        extract_to_path = 'C:\\Win_sharefolder_summary\\'+os.path.splitext(i)[0]
+        zip_files_name = file_path + i
+        extract_to_path = file_path + os.path.splitext(i)[0]
         #使用 zipfile 解压
         try:
             os.makedirs(extract_to_path, exist_ok=True)  # exist_ok=True 表示如果目录存在不会抛出异常
