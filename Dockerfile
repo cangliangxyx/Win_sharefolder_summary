@@ -1,6 +1,6 @@
 # 使用官方Python运行时作为父镜像
 #FROM win_sharefolder_summary-app:latest
-FROM python:3.8-slim
+FROM cangliangxyx/python38:v1.0
 # 设置工作目录
 WORKDIR /app
 # 复制项目文件到容器内
